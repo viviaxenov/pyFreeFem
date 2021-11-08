@@ -150,3 +150,19 @@ def export_vector_edp( **kwargs ) :
         edp_str = edp_str.replace( *name )
 
     return edp_str
+
+def export_array_edp( **kwargs ) :
+
+    # edp_str = 'cout << base_func[];\n'
+
+    edp_str = '''
+    for (int nVector = 0; nVector < _u_.n; nVector++ )
+    	{
+    	cout << _u_[nVector] << endl;
+    	}
+    '''
+
+    for name in kwargs.items() :
+        edp_str = edp_str.replace( *name )
+
+    return edp_str

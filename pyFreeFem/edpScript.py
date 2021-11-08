@@ -53,6 +53,9 @@ class edpOutput :
         elif self.type == 'vector' :
             edp = export_vector_edp( _u_ = self.FreeFem_name )
 
+        elif self.type == 'array' :
+            edp = export_array_edp( _u_ = self.FreeFem_name )
+
         elif self.type == 'mesh' :
             edp = export_mesh_edp( _Th_ = self.FreeFem_name )
 
@@ -66,7 +69,7 @@ class edpOutput :
         if self.type == 'matrix' :
             return FreeFem_str_to_matrix( parse_FreeFem_output( FreeFem_output, self.flag  ) )
 
-        elif self.type == 'vector' :
+        elif self.type in ['vector', 'array'] :
             return FreeFem_str_to_vector( parse_FreeFem_output( FreeFem_output, self.flag ) )
 
         elif self.type == 'mesh' :
